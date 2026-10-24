@@ -72,8 +72,14 @@ button:focus-visible,a:focus-visible,input:focus-visible+span{outline:3px solid 
 footer{margin-top:34px;font-size:13px;text-align:center}
 .petal{animation:fall 7s linear infinite}
 @keyframes fall{0%{transform:translate(0,-20px) rotate(0)}100%{transform:translate(-40px,230px) rotate(240deg)}}
-.train{animation:go 9s ease-in-out infinite alternate}
-@keyframes go{0%{transform:translateX(-30px)}100%{transform:translateX(40px)}}
+.train{transform:translateY(-14px);animation:go 9s ease-in-out infinite alternate}
+@keyframes go{0%{transform:translate(-30px,-14px)}100%{transform:translate(40px,-14px)}}
+.bob{animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-2px)}}
+.hop{animation:hop .9s ease-in-out infinite}
+@keyframes hop{50%{transform:translateY(-6px)}}
+.tail{transform-box:fill-box;transform-origin:50% 0;animation:sway 2s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
 .cloud{animation:drift 12s ease-in-out infinite alternate}
 @keyframes drift{0%{transform:translateX(-14px)}100%{transform:translateX(18px)}}
 .sun{transform-origin:290px 52px;animation:pulse 4s ease-in-out infinite}
@@ -85,7 +91,7 @@ footer{margin-top:34px;font-size:13px;text-align:center}
 <nav><b>🌸 東北賞櫻</b><div><a href="#flight">航班</a><a href="#plan">行程</a><a href="#todo">待辦</a><a href="#stay">住宿</a></div></nav>
 <main>
 <header class="hero box">
-<svg viewBox="0 0 360 230" role="img" aria-label="插畫：盛開的櫻花樹、岩手山與東北新幹線">
+<svg viewBox="0 0 360 230" role="img" aria-label="插畫：盛開的櫻花樹、岩手山、東北新幹線，以及一家四口：阿公、阿嬤、媽媽與小女孩">
 <rect width="360" height="230" fill="#A8D3E6"/>
 <g class="sun"><circle cx="290" cy="52" r="26" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/></g>
 <g class="cloud"><path d="M40 62h70a15 15 0 0 0-8-27 20 20 0 0 0-38-4 17 17 0 0 0-24 31z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></g>
@@ -96,6 +102,12 @@ footer{margin-top:34px;font-size:13px;text-align:center}
 <g class="train"><rect x="120" y="170" width="150" height="30" rx="14" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><path d="M255 172q22 2 24 14v12h-24z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><rect x="120" y="184" width="136" height="7" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3"/><rect x="134" y="176" width="14" height="8" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2"/><rect x="156" y="176" width="14" height="8" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2"/><rect x="178" y="176" width="14" height="8" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2"/><rect x="200" y="176" width="14" height="8" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2"/></g>
 <path d="M62 190q-4-46 8-76" fill="none" stroke="#3E3A39" stroke-width="9" stroke-linecap="round"/>
 <g fill="#F2A497" stroke="#3E3A39" stroke-width="3"><circle cx="70" cy="100" r="30"/><circle cx="38" cy="122" r="22"/><circle cx="104" cy="120" r="24"/><circle cx="68" cy="136" r="20"/></g>
+<g stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+<g transform="translate(150,225)"><g class="bob"><rect x="-5" y="-9" width="4" height="9" fill="#3E3A39"/><rect x="1" y="-9" width="4" height="9" fill="#3E3A39"/><rect x="-8" y="-27" width="16" height="19" rx="6" fill="#B9DAA5"/><circle cy="-34" r="8" fill="#FFFCF6"/><path d="M-8 -35a8 8 0 0 1 16 0q-8-5-16 0z" fill="#D9D5D0"/><circle cx="-3" cy="-32" r="2.2" fill="none" stroke-width="1.5"/><circle cx="3" cy="-32" r="2.2" fill="none" stroke-width="1.5"/><path d="M11 0V-19q0-4 4-3" fill="none"/></g></g>
+<g transform="translate(178,225)"><g class="bob" style="animation-delay:-.6s"><rect x="-5" y="-8" width="4" height="8" fill="#3E3A39"/><rect x="1" y="-8" width="4" height="8" fill="#3E3A39"/><path d="M-6 -26h12l4 19h-20z" fill="#F2A497"/><circle cy="-32" r="7.5" fill="#FFFCF6"/><path d="M-7.500 -33a7.500 7.500 0 0 1 15 0q-7.500-4-15 0z" fill="#D9D5D0"/><circle cy="-41" r="4" fill="#D9D5D0"/><circle cx="-2.500" cy="-31" r=".9" fill="#3E3A39" stroke="none"/><circle cx="2.500" cy="-31" r=".9" fill="#3E3A39" stroke="none"/><path d="M-8 -20q-8 3-14 0" fill="none" opacity="0"/></g></g>
+<g transform="translate(208,225)"><g class="bob" style="animation-delay:-1.2s"><rect x="-5" y="-9" width="4" height="9" fill="#3E3A39"/><rect x="1" y="-9" width="4" height="9" fill="#3E3A39"/><path d="M-7 -26h14l3 18h-20z" fill="#A8D3E6"/><circle cy="-33" r="8" fill="#FFFCF6"/><path d="M-8.500 -33a8.500 8.500 0 0 1 17 0q-8.500-6-17 0z" fill="#3E3A39"/><g class="tail"><path d="M7 -38q9 0 7 12q-3-6-7-6z" fill="#3E3A39"/></g><circle cx="-3" cy="-31" r=".9" fill="#3E3A39" stroke="none"/><circle cx="3" cy="-31" r=".9" fill="#3E3A39" stroke="none"/><path d="M6 -22q10 2 16 10" fill="none"/></g></g>
+<g transform="translate(234,225)"><g class="hop"><rect x="-3.500" y="-5" width="3" height="5" fill="#3E3A39"/><rect x="0.500" y="-5" width="3" height="5" fill="#3E3A39"/><path d="M-5 -16h10l3 12h-16z" fill="#F6D27A"/><circle cy="-21" r="6.500" fill="#FFFCF6"/><path d="M-6.500 -22a6.500 6.500 0 0 1 13 0q-6.500-4-13 0z" fill="#3E3A39"/><circle cx="-8" cy="-19" r="3" fill="#3E3A39"/><circle cx="8" cy="-19" r="3" fill="#3E3A39"/><circle cx="-2.500" cy="-20" r=".9" fill="#3E3A39" stroke="none"/><circle cx="2.500" cy="-20" r=".9" fill="#3E3A39" stroke="none"/></g></g>
+</g>
 <g fill="#F2A497" stroke="#3E3A39" stroke-width="2"><ellipse class="petal" cx="150" cy="40" rx="5" ry="3" style="animation-delay:-1s"/><ellipse class="petal" cx="200" cy="10" rx="5" ry="3" style="animation-delay:-3s"/><ellipse class="petal" cx="250" cy="30" rx="5" ry="3" style="animation-delay:-5s"/><ellipse class="petal" cx="110" cy="20" rx="5" ry="3" style="animation-delay:-2s"/><ellipse class="petal" cx="320" cy="20" rx="5" ry="3" style="animation-delay:-4s"/></g>
 </svg>
 <h1>東北賞櫻・十日繪本之旅</h1>
