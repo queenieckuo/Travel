@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>東北賞櫻・十日繪本之旅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
+<style>
+:root{--paper:#FFFCF6;--ink:#3E3A39;--pink:#F2A497;--yellow:#F6D27A;--sky:#A8D3E6;--green:#B9DAA5;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Huninn","PingFang TC","Noto Sans TC",sans-serif;line-height:1.7;font-size:16px}
+.box{border:3px solid var(--ink);border-radius:26px;background:var(--paper)}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;background:var(--paper);border-bottom:3px solid var(--ink);padding:calc(8px + env(safe-area-inset-top,0px)) 12px 8px;display:flex;gap:8px;align-items:center;justify-content:space-between}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:21}
+nav b{font-size:15px;white-space:nowrap}
+nav div{display:flex;gap:6px;overflow-x:auto}
+nav a{color:var(--ink);text-decoration:none;border:3px solid var(--ink);border-radius:99px;padding:0 11px;font-size:14px;white-space:nowrap;background:var(--yellow)}
+nav a:nth-child(2){background:var(--sky)}nav a:nth-child(3){background:var(--green)}nav a:nth-child(4){background:var(--pink)}
+main{max-width:760px;margin:0 auto;padding:78px 14px 40px}
+section{margin-top:34px}
+h1,h2{margin:0}h2{font-size:24px;margin-bottom:12px}
+.hero{overflow:hidden;text-align:center;padding-bottom:18px}
+.hero svg{display:block;width:100%;height:auto;border-bottom:3px solid var(--ink)}
+.hero h1{font-size:28px;margin:14px 10px 2px;line-height:1.3}
+.hero p{margin:0 10px;font-size:14px}
+.count{display:inline-block;margin-top:12px;background:var(--yellow);border:3px solid var(--ink);border-radius:99px;padding:4px 20px}
+.count b{font-size:30px}
+.fl{display:grid;gap:14px}
+@media(min-width:620px){.fl{grid-template-columns:1fr 1fr}}
+.fc{padding:16px}
+.fc .tag{display:inline-block;border:3px solid var(--ink);border-radius:99px;padding:0 12px;font-size:14px}
+.fc .row{display:flex;justify-content:space-between;align-items:center;margin:10px 0 4px}
+.fc .t{font-size:30px;line-height:1.1}.fc small{display:block;font-size:13px}
+.fc .line{flex:1;margin:0 10px;border-top:3px dashed var(--ink);position:relative;text-align:center;top:-4px}
+.fc .line span{position:absolute;left:50%;top:-14px;transform:translateX(-50%);background:var(--paper);padding:0 6px;font-size:13px;white-space:nowrap}
+.note{font-size:13px;margin-top:10px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px}
+.tabs button{font:inherit;color:var(--ink);flex:0 0 auto;border:3px solid var(--ink);border-radius:20px;background:var(--paper);padding:2px 12px;line-height:1.3;cursor:pointer}
+.tabs button small{display:block;font-size:12px}
+.tabs button[aria-selected=true]{background:var(--pink)}
+button:focus-visible,a:focus-visible,input:focus-visible+span{outline:3px solid var(--sky);outline-offset:2px}
+.dh{margin:4px 0 14px;font-size:20px}
+.dh small{display:block;font-size:14px}
+#tl{position:relative;margin:0;padding:0 0 0 30px;list-style:none}
+#tl::before{content:"";position:absolute;left:10px;top:8px;bottom:8px;border-left:3px dashed var(--ink)}
+#tl.pop li{animation:pop .5s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(var(--i)*70ms)}
+@keyframes pop{0%{transform:translateY(24px) scale(.9);opacity:0}100%{transform:none;opacity:1}}
+#tl li{position:relative;margin-bottom:14px;padding:10px 14px}
+#tl li::before{content:"";position:absolute;left:-29px;top:14px;width:16px;height:16px;border:3px solid var(--ink);border-radius:50%;background:var(--yellow)}
+#tl li.must::before{background:var(--pink)}
+.nm{font-size:17px}
+.must .nm::after{content:"必去";margin-left:8px;font-size:13px;background:var(--pink);border:3px solid var(--ink);border-radius:99px;padding:0 9px;vertical-align:2px}
+.tg{display:inline-block;border:3px solid var(--ink);border-radius:99px;padding:0 10px;font-size:13px;margin:4px 6px 0 0;line-height:1.5}
+.c0{background:var(--sky)}.c1{background:var(--pink)}.c2{background:var(--yellow)}.c3{background:var(--green)}
+.nt{font-size:13px;margin-top:2px}
+.todo{list-style:none;padding:8px 14px;margin:0}
+.todo label{display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:3px dotted var(--ink);cursor:pointer}
+.todo li:last-child label{border:0}
+.todo input{position:absolute;opacity:0}
+.todo span::before{content:"";flex:none;display:inline-block;width:24px;height:24px;border:3px solid var(--ink);border-radius:8px;background:var(--paper);vertical-align:-6px;margin-right:12px;transition:background .2s}
+.todo input:checked+span::before{background:var(--green);content:"✓";text-align:center;line-height:18px;font-size:18px}
+.todo input:checked+span{text-decoration:line-through;opacity:.6}
+.prog{font-size:14px;margin:-6px 0 10px}
+.hs{display:grid;gap:14px}
+@media(min-width:620px){.hs{grid-template-columns:1fr 1fr}}
+.hc{padding:14px 16px}
+.hc h3{margin:0;font-size:20px}
+.hc .bd{display:inline-block;border:3px solid var(--ink);border-radius:99px;padding:0 12px;font-size:13px;margin-bottom:6px}
+footer{margin-top:34px;font-size:13px;text-align:center}
+.petal{animation:fall 7s linear infinite}
+@keyframes fall{0%{transform:translate(0,-20px) rotate(0)}100%{transform:translate(-40px,230px) rotate(240deg)}}
+.train{animation:go 9s ease-in-out infinite alternate}
+@keyframes go{0%{transform:translateX(-30px)}100%{transform:translateX(40px)}}
+.cloud{animation:drift 12s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translateX(-14px)}100%{transform:translateX(18px)}}
+.sun{transform-origin:290px 52px;animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.07)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><b>🌸 東北賞櫻</b><div><a href="#flight">航班</a><a href="#plan">行程</a><a href="#todo">待辦</a><a href="#stay">住宿</a></div></nav>
+<main>
+<header class="hero box">
+<svg viewBox="0 0 360 230" role="img" aria-label="插畫：盛開的櫻花樹、岩手山與東北新幹線">
+<rect width="360" height="230" fill="#A8D3E6"/>
+<g class="sun"><circle cx="290" cy="52" r="26" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/></g>
+<g class="cloud"><path d="M40 62h70a15 15 0 0 0-8-27 20 20 0 0 0-38-4 17 17 0 0 0-24 31z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></g>
+<path d="M110 150L200 58l90 92z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+<path d="M200 58l-30 31 14-6 16 10 14-10 16 8z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" opacity="0"/>
+<path d="M0 160q60-34 130-8t140-4 90 10v72H0z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3"/>
+<path d="M0 195h360v35H0z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+<g class="train"><rect x="120" y="170" width="150" height="30" rx="14" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><path d="M255 172q22 2 24 14v12h-24z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><rect x="120" y="184" width="136" height="7" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3"/><rect x="134" y="176" width="14" height="8" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2"/><rect x="156" y="176" width="14" height="8" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2"/><rect x="178" y="176" width="14" height="8" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2"/><rect x="200" y="176" width="14" height="8" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2"/></g>
+<path d="M62 190q-4-46 8-76" fill="none" stroke="#3E3A39" stroke-width="9" stroke-linecap="round"/>
+<g fill="#F2A497" stroke="#3E3A39" stroke-width="3"><circle cx="70" cy="100" r="30"/><circle cx="38" cy="122" r="22"/><circle cx="104" cy="120" r="24"/><circle cx="68" cy="136" r="20"/></g>
+<g fill="#F2A497" stroke="#3E3A39" stroke-width="2"><ellipse class="petal" cx="150" cy="40" rx="5" ry="3" style="animation-delay:-1s"/><ellipse class="petal" cx="200" cy="10" rx="5" ry="3" style="animation-delay:-3s"/><ellipse class="petal" cx="250" cy="30" rx="5" ry="3" style="animation-delay:-5s"/><ellipse class="petal" cx="110" cy="20" rx="5" ry="3" style="animation-delay:-2s"/><ellipse class="petal" cx="320" cy="20" rx="5" ry="3" style="animation-delay:-4s"/></g>
+</svg>
+<h1>東北賞櫻・十日繪本之旅</h1>
+<p>盛岡・角館・青森・弘前・奧入瀨　2027/4/15–4/24</p>
+<div class="count" aria-live="polite">還有 <b id="cd">–</b> 天出發</div>
+</header>
+
+<section id="flight"><h2>✈️ 航班</h2><div class="fl">
+<div class="fc box"><span class="tag c2">去程・4/16（五）</span><div class="row"><div><div class="t">09:55</div><small>桃園 TPE</small></div><div class="line"><span>BR122・3h25m</span></div><div style="text-align:right"><div class="t">14:20</div><small>青森 AOJ</small></div></div><div class="note">長榮航空 EVA Air　直飛</div></div>
+<div class="fc box"><span class="tag c3">回程・4/24（六）</span><div class="row"><div><div class="t">15:30</div><small>青森 AOJ</small></div><div class="line"><span>BR121・4h30m</span></div><div style="text-align:right"><div class="t">19:00</div><small>桃園 TPE</small></div></div><div class="note">長榮航空 EVA Air　直飛</div></div>
+</div><p class="note">※ 目前查到的班表為 2026/10/25–2027/3/27，4 月的航班時刻出表後須再確認。</p></section>
+
+<section id="plan"><h2>🗓 每日行程</h2>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="box" style="padding:16px 14px 4px"><div class="dh" id="dh"></div><ul id="tl"></ul></div></section>
+
+<section id="todo"><h2>✅ 出發前待辦</h2><div class="prog" id="prog"></div><ul class="todo box" id="todol"></ul></section>
+
+<section id="stay"><h2>🏨 住宿</h2><div class="hs" id="hs"></div></section>
+<footer>交通時間為初步估算，未含候車、上下車、步行及轉乘時間。<br>航班與飯店接駁時刻須再確認。</footer>
+</main>
+<script>
+var T={"飛機":0,"新幹線":1,"高鐵":0,"機捷":2,"計程車":2,"包車":3,"接駁巴士":3};
+var D=[
+{d:"D0",dt:"4/15",w:"四",t:"高雄 → 桃園",s:"桃園",i:[["高雄出發",[["高鐵","約 1 小時 35 分"]]],["抵達桃園，轉乘",[["機捷","約 20–40 分"]],0,"接駁亦可"],["入住桃園，準備隔天早班機"]]},
+{d:"D1",dt:"4/16",w:"五",t:"桃園 → 青森 → 盛岡",s:"盛岡",i:[["桃園機場起飛 BR122",[["飛機","約 3 小時 25 分"]],0,"09:55 起飛，14:20 抵達"],["青森機場 → 新青森站",[["計程車","約 30–40 分"]]],["新青森 → 盛岡",[["新幹線","東北新幹線 45–60 分"]]],["入住盛岡"]]},
+{d:"D2",dt:"4/17",w:"六",t:"盛岡 → 北上 → 盛岡",s:"盛岡",i:[["盛岡 → 北上",[["新幹線","東北新幹線 約 20 分"]]],["北上展勝地",[["計程車","約 10–15 分"]],1,"東北知名的櫻花名所"],["盛岡城跡公園",[["計程車","回程同方式"]],0,"回盛岡後散步賞櫻"]]},
+{d:"D3",dt:"4/18",w:"日",t:"盛岡 → 角館 → 盛岡",s:"盛岡",i:[["盛岡 → 角館",[["新幹線","秋田新幹線 45–55 分"]]],["角館武家屋敷",[["計程車","約 5–10 分"]],1,"黑板牆與枝垂櫻"],["檜木內川堤",[["計程車","約 5–10 分"]],1,"櫻花隧道"],["返回盛岡",[["新幹線","回程同方式"]]]]},
+{d:"D4",dt:"4/19",w:"一",t:"盛岡 → 新青森 → 青森市",s:"青森市",i:[["盛岡石割櫻",[["計程車","市區約 10–15 分"]],1,"長在巨大岩石縫裡的櫻花"],["盛岡 → 新青森",[["新幹線","東北新幹線 45–60 分"]]],["新青森 → 飯店",[["計程車","約 15–25 分"]]],["入住青森市"]]},
+{d:"D5",dt:"4/20",w:"二",t:"青森 → 弘前 → 青森",s:"青森市",i:[["弘前公園、弘前城",[["包車","全日包車，單程 60–90 分"]],1,"日本賞櫻名所，護城河花筏"],["返回青森市",[["包車","約 60–90 分"]]]]},
+{d:"D6",dt:"4/21",w:"三",t:"青森市區 / 弘前備用日",s:"青森市",i:[["青森市區輕鬆觀光",[["計程車","市區約 5–15 分"]]],["弘前備用賞櫻日",[["包車","往返約 2–3 小時"]],0,"依花況與天氣二選一"]]},
+{d:"D7",dt:"4/22",w:"四",t:"青森市 → 奧入瀨",s:"奧入瀨",i:[["飯店 → 奧入瀨溪流飯店",[["接駁巴士","飯店接駁，約 2 小時"]]],["入住奧入瀨"]]},
+{d:"D8",dt:"4/23",w:"五",t:"奧入瀨溪流 → 十和田湖",s:"奧入瀨",i:[["奧入瀨溪流",[["包車","半日包車，約 10–40 分"]],1,"沿溪散步看新綠與瀑布"],["十和田湖（選擇性）",[["包車","各段約 10–40 分"]]]]},
+{d:"D9",dt:"4/24",w:"六",t:"奧入瀨 → 青森 → 桃園 → 高雄",s:"—",i:[["奧入瀨飯店 → 青森機場",[["包車","約 2–2.5 小時"]]],["青森機場起飛 BR121",[["飛機","約 4–4.5 小時"]],0,"15:30 起飛，19:00 抵達"],["桃園 → 高雄",[["高鐵","約 2–3 小時（含轉乘）"]]]]}
+];
+var $=function(i){return document.getElementById(i)};
+var tabs=$("tabs"),tl=$("tl");
+D.forEach(function(x,n){var b=document.createElement("button");b.setAttribute("role","tab");b.innerHTML=x.d+"<small>"+x.dt+"（"+x.w+"）</small>";b.onclick=function(){show(n)};tabs.appendChild(b)});
+function show(n){
+var x=D[n];
+[].forEach.call(tabs.children,function(b,k){b.setAttribute("aria-selected",k==n)});
+tabs.children[n].scrollIntoView({inline:"center",block:"nearest"});
+$("dh").innerHTML=x.d+"　"+x.t+"<small>"+x.dt+"（"+x.w+"）　住宿：<b>"+x.s+"</b></small>";
+tl.className="";
+tl.innerHTML=x.i.map(function(it,k){
+var g=(it[1]||[]).map(function(a){return '<span class="tg c'+(T[a[0]]||0)+'">'+a[0]+"・"+a[1]+"</span>"}).join("");
+return '<li class="box'+(it[2]==1?" must":"")+'" style="--i:'+k+'"><div class="nm">'+it[0]+"</div>"+g+(it[3]?'<div class="nt">'+it[3]+"</div>":"")+"</li>"}).join("");
+void tl.offsetWidth;tl.className="pop";
+}
+show(1);
+/* 倒數 */
+var left=Math.ceil((new Date(2027,3,15)-new Date())/864e5);
+$("cd").textContent=Math.max(left,0);
+/* 待辦 */
+var L=["確認護照效期（6 個月以上）","確認 BR122／BR121 的 4 月航班時刻","預訂高雄 ⇄ 桃園的高鐵與機捷","預訂東北新幹線與秋田新幹線座位","預約弘前全日包車（4/20）","預約奧入瀨飯店接駁與機場包車","查詢櫻花開花預報，決定 D6 備用日","準備 eSIM／網卡與日幣現金","購買旅遊保險"];
+var st={};try{st=JSON.parse(localStorage.getItem("tohoku")||"{}")}catch(e){}
+function prog(){var c=L.filter(function(_,k){return st[k]}).length;$("prog").textContent="已完成 "+c+" / "+L.length+" 項"}
+$("todol").innerHTML=L.map(function(t,k){return '<li><label><input type="checkbox" data-k="'+k+'"'+(st[k]?" checked":"")+"><span>"+t+"</span></label></li>"}).join("");
+$("todol").onchange=function(e){st[e.target.dataset.k]=e.target.checked;try{localStorage.setItem("tohoku",JSON.stringify(st))}catch(x){}prog()};
+prog();
+/* 住宿 */
+$("hs").innerHTML=[["桃園","4/15–4/16","1 晚","c2","飛機前一晚，靠近機場"],["盛岡","4/16–4/19","3 晚","c0","北上、角館、石割櫻的據點"],["青森市","4/19–4/22","3 晚","c1","弘前賞櫻與市區觀光"],["奧入瀨溪流飯店","4/22–4/24","2 晚","c3","溪流與十和田湖，退房後包車赴機場"]].map(function(h){return '<div class="hc box"><span class="bd '+h[3]+'">'+h[2]+"</span><h3>"+h[0]+"</h3><div>"+h[1]+"</div><div class=\"nt\">"+h[4]+"　飯店名稱與訂房編號待填</div></div>"}).join("");
+</script>
+</body>
+</html>
