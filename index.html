@@ -143,7 +143,7 @@ footer{margin-top:34px;font-size:13px;text-align:center}
 <section id="todo"><h2>✅ 出發前待辦</h2><div class="prog" id="prog"></div><ul class="todo box" id="todol"></ul></section>
 
 <section id="stay"><h2>🏨 住宿</h2><div class="hs" id="hs"></div></section>
-<section id="cost"><h2>💴 費用</h2><div class="tabs" id="ctabs" role="tablist"></div><div class="box" style="padding:6px 14px 14px"><ul class="cl" id="cl"></ul><div class="ct" id="ct" aria-live="polite"></div></div><p class="note">金額由你自行填寫並選擇幣別，只會存在這支瀏覽器裡；總計依幣別分開計算。</p></section>
+<section id="cost"><h2>💴 費用</h2><div class="tabs" id="ctabs" role="tablist"></div><div class="box" style="padding:6px 14px 14px"><ul class="cl" id="cl"></ul><div class="ct" id="ct" aria-live="polite"></div><button class="add" id="exb" style="margin-top:10px;background:var(--sky)">匠出費用資料</button><textarea id="exo" hidden readonly rows="5" aria-label="費用資料" style="width:100%;margin-top:8px;font:inherit;font-size:12px;border:3px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);padding:8px"></textarea><div class="note" id="exm"></div></div><p class="note"><span id="sync">顯示的是發佈時的金額；在此修改只會存在你的瀏覽器。</span>　金額由擁有者填寫並選擇幣別，總計依幣別分開計算。</p></section>
 <footer>交通時間為初步估算，未含候車、上下車、步行及轉乘時間。<br>航班與飯店接駁時刻須再確認。</footer>
 </main><div class="cardov" id="ov" aria-hidden="true"><div class="pc box" id="pc" role="dialog" aria-modal="true" aria-label="地點介紹"></div></div>
 <script>
@@ -219,7 +219,8 @@ var CA=[{n:"住宿",r:[["桃園機場假日酒店 4/16–4/17（阿公阿嬤）"
 {n:"新幹線",r:[["4/17 新青森 → 盛岡","JPY"],["4/18 盛岡 ⇄ 北上","JPY"],["4/19 盛岡 ⇄ 角館（秋田新幹線）","JPY"],["4/20 盛岡 → 新青森","JPY"]]},
 {n:"包車",car:1,r:[]}];
 CA.forEach(function(x,n){x.r=x.r.map(function(r,i){return{k:r[2]||n+"-"+i,t:r[0],c:r[1],n:r[3]}})});
-var CS={};try{CS=JSON.parse(localStorage.getItem("tohokuCost")||"{}")}catch(e){}
+var BASEV="2026-10-25",BASE={"0-0":{"a":"3000"},"0-1":{"c":"TWD","a":"19419"},"0-2":{"a":"3000"},"0-3":{"a":"45199"},"0-4":{"a":"245700"},"1-0":{"a":"1290"},"hsr-0419":{"a":"1935"},"1-1":{"a":"3225"},"air-gp":{"a":"34000"},"air-mk":{"a":"30000"},"cars":[{"d":"","n":"","a":"","c":"JPY"}]};
+var CS=JSON.parse(JSON.stringify(BASE));try{var LS=JSON.parse(localStorage.getItem("tohokuCost")||"null");if(LS&&LS.ver==BASEV)CS=LS.cs}catch(e){}
 if(!CS.cars||!CS.cars.length)CS.cars=[{d:"",n:"",a:"",c:"JPY"}];
 var cc=$("ctabs"),cur=0;
 CA.forEach(function(x,n){var b=document.createElement("button");b.setAttribute("role","tab");b.textContent=x.n;b.onclick=function(){cur=n;cshow()};cc.appendChild(b)});
@@ -229,8 +230,8 @@ function tw(s){return "NT$ "+Math.round(s.TWD+s.JPY*0.21).toLocaleString()}
 function ctot(){var all=[];CA.forEach(function(x){all=all.concat(x.r)});$("ct").innerHTML="本類小計：<b>"+fm(CA[cur].car?csum():sums(CA[cur].r))+"</b><br>全部總計（新台幣）：<b>"+tw(addS(sums(all),csum()))+"</b><small class='fx'>日幣以 1 JPY ＝ 0.21 TWD 換算，匯率僅供預估。</small>"}
 function cshow(){var u=$("cl");[].forEach.call(cc.children,function(b,k){b.setAttribute("aria-selected",k==cur)});
 u.className="cl";u.innerHTML=CA[cur].car?carH():CA[cur].r.map(function(r){var v=CS[r.k]||{},c=v.c||r.c;return '<li><div class="cn">'+r.t+(r.n?'<small>'+r.n+'</small>':'')+'</div><div class="ci"><input inputmode="decimal" aria-label="'+r.t+' 金額" data-k="'+r.k+'" value="'+(v.a||"")+'" placeholder="金額"><select data-k="'+r.k+'" aria-label="幣別"><option'+(c=="TWD"?" selected":"")+'>TWD</option><option'+(c=="JPY"?" selected":"")+'>JPY</option></select></div></li>'}).join("");
-void u.offsetWidth;u.className="cl pop";ctot()}
-function sv(){try{localStorage.setItem("tohokuCost",JSON.stringify(CS))}catch(x){}}
+void u.offsetWidth;u.className="cl pop";ctot();ro()}
+function sv(){try{localStorage.setItem("tohokuCost",JSON.stringify({ver:BASEV,cs:CS}))}catch(x){}if(cdb&&own)push()}
 function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
 function csum(){var s={TWD:0,JPY:0};CS.cars.forEach(function(r){s[r.c=="TWD"?"TWD":"JPY"]+=parseFloat(r.a)||0});return s}
 function addS(a,b){return{TWD:a.TWD+b.TWD,JPY:a.JPY+b.JPY}}
@@ -238,8 +239,17 @@ function carH(){return CS.cars.map(function(r,i){return '<li data-i="'+i+'"><div
 $("cl").onclick=function(e){var t=e.target;if(t.id=="addc"){CS.cars.push({d:"",n:"",a:"",c:"JPY"})}else if(t.dataset.del!==undefined){CS.cars.splice(+t.dataset.del,1);if(!CS.cars.length)CS.cars.push({d:"",n:"",a:"",c:"JPY"})}else return;sv();cshow()};
 $("cl").oninput=function(e){var t=e.target,f=t.dataset.f;if(f){CS.cars[+t.closest("li").dataset.i][f]=t.value;sv();ctot();return}var k=t.dataset.k;if(!k)return;var v=CS[k]||(CS[k]={});if(e.target.tagName=="INPUT")v.a=e.target.value;else v.c=e.target.value;try{localStorage.setItem("tohokuCost",JSON.stringify(CS))}catch(x){}ctot()};
 cshow();
+function ex(){var t=JSON.stringify({ver:BASEV,cs:CS}),a=$("exo"),m=$("exm"),h="請手動複製上方內容，貼給 Claude 就能更新頁面裡的金額。";a.value=t;a.hidden=false;a.select();m.textContent=h;try{navigator.clipboard.writeText(t).then(function(){m.textContent="已複製到剪貼簿。把內容貼給 Claude，就能更新頁面裡的金額。"},function(){})}catch(e){}
+try{var b=new Blob([t],{type:"application/json"}),l=document.createElement("a");l.href=URL.createObjectURL(b);l.download="tohoku-cost.json";l.click()}catch(e){}}
+$("exb").onclick=ex;
+var cdb=null,own=false,tm=0;
+function ro(){var s=$("sync");if(!cdb)return;if(own){s.textContent="☁️ 已同步到雲端，家人可查看。"}else{s.textContent="👀 唯讀：只有行程擁有者能修改。";[].forEach.call($("cl").querySelectorAll("input,select,button"),function(e){e.disabled=true})}}
+function push(){clearTimeout(tm);tm=setTimeout(function(){cdb.doc("cost/data").set({v:JSON.stringify(CS)}).catch(function(){})},600)}
+(async function(){try{var u=await claude.use("user");own=u?await u.isOwner():false;cdb=await claude.use("db")}catch(e){cdb=null}
+if(!cdb)return;ro();
+cdb.doc("cost/data").onSnapshot(function(s){if(s.exists){var r;try{r=JSON.parse(s.data().v)}catch(e){return}if(JSON.stringify(r)!==JSON.stringify(CS)&&!$("cl").contains(document.activeElement)){CS=r;if(!CS.cars||!CS.cars.length)CS.cars=[{d:"",n:"",a:"",c:"JPY"}];cshow()}}else if(own)push()},function(){})})();
 /* 住宿 */
-$("hs").innerHTML=[["桃園機場假日酒店","4/16–4/17","1 晚・2 人","c2","阿公阿嬤・飛機前一晚，靠近機場","","https://www.agoda.com/zh-tw/hotel-orchard-park-new-wing_2/hotel/taoyuan-tw.html?countryId=140&finalPriceView=2&isShowMobileAppPrice=false&cid=1922895&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-17&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=TWD&isFreeOccSearch=false&tag=e9ea26c2-c046-468f-939d-97d11075d6e0&flightSearchCriteria=[object%20Object]&los=3&searchrequestid=8ef34f20-f213-45ca-863b-6fd79dfe0182"],["Daiwa Roynet Hotel 盛岡站前","4/17–4/20","3 晚・2 人","c0","盛岡・北上、角館、石割櫻的據點","T42A1EC91DB0A"],["桃園機場假日酒店","4/19–4/20","1 晚・2 人","c2","媽媽與小妹妹・隔天搭機前往青森，直接到飯店會合","","https://www.agoda.com/zh-tw/hotel-orchard-park-new-wing_2/hotel/taoyuan-tw.html?countryId=140&finalPriceView=2&isShowMobileAppPrice=false&cid=1922895&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-17&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=TWD&isFreeOccSearch=false&tag=e9ea26c2-c046-468f-939d-97d11075d6e0&flightSearchCriteria=[object%20Object]&los=3&searchrequestid=8ef34f20-f213-45ca-863b-6fd79dfe0182"],["Daiwa Roynet Hotel 青森","4/20–4/23","3 晚・4 人","c1","青森市・弘前賞櫻與市區觀光","T7E8C59E2666A、TE6A820FBF03C"],["奧入瀨溪流飯店","4/23–4/25","2 晚・4 人","c3","溪流與十和田湖，退房後包車赴機場","q1ksocfoe3"]].map(function(h){return '<div class="hc box"><span class="bd '+h[3]+'">'+h[2]+"</span><h3>"+(h[6]?'<a href="'+h[6].replace(/&/g,"&amp;")+'" target="_blank" rel="noopener">'+h[0]+'</a>':h[0])+"</h3><div>"+h[1]+"</div><div class=\"nt\">"+h[4]+(h[5]?"<br>訂房來源：飯店官方網站<br>訂房編號：<b>"+h[5]+"</b>":"<br>訂房編號：待補")+"</div></div>"}).join("");
+$("hs").innerHTML=[["桃園機場假日酒店","4/16–4/17","1 晚・2 人","c2","阿公阿嬤・飛機前一晚，靠近機場","","https://www.agoda.com/zh-tw/hotel-orchard-park-new-wing_2/hotel/taoyuan-tw.html?countryId=140&finalPriceView=2&isShowMobileAppPrice=false&cid=1922895&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-17&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=TWD&isFreeOccSearch=false&tag=e9ea26c2-c046-468f-939d-97d11075d6e0&flightSearchCriteria=[object%20Object]&los=3&searchrequestid=8ef34f20-f213-45ca-863b-6fd79dfe0182"],["Daiwa Roynet Hotel 盛岡站前","4/17–4/20","3 晚・2 人","c0","盛岡・北上、角館、石割櫻的據點"],["桃園機場假日酒店","4/19–4/20","1 晚・2 人","c2","媽媽與小妹妹・隔天搭機前往青森，直接到飯店會合","","https://www.agoda.com/zh-tw/hotel-orchard-park-new-wing_2/hotel/taoyuan-tw.html?countryId=140&finalPriceView=2&isShowMobileAppPrice=false&cid=1922895&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-17&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=TWD&isFreeOccSearch=false&tag=e9ea26c2-c046-468f-939d-97d11075d6e0&flightSearchCriteria=[object%20Object]&los=3&searchrequestid=8ef34f20-f213-45ca-863b-6fd79dfe0182"],["Daiwa Roynet Hotel 青森","4/20–4/23","3 晚・4 人","c1","青森市・弘前賞櫻與市區觀光"],["奧入瀨溪流飯店","4/23–4/25","2 晚・4 人","c3","溪流與十和田湖，退房後包車赴機場"]].map(function(h){return '<div class="hc box"><span class="bd '+h[3]+'">'+h[2]+"</span><h3>"+(h[6]?'<a href="'+h[6].replace(/&/g,"&amp;")+'" target="_blank" rel="noopener">'+h[0]+'</a>':h[0])+"</h3><div>"+h[1]+"</div><div class=\"nt\">"+h[4]+"</div></div>"}).join("");
 </script>
 </body>
 </html>
