@@ -63,7 +63,7 @@ button:focus-visible,a:focus-visible,input:focus-visible+span{outline:3px solid 
 .todo li:last-child label{border:0}
 .todo input{position:absolute;opacity:0}
 .todo span::before{content:"";flex:none;display:inline-block;width:24px;height:24px;border:3px solid var(--ink);border-radius:8px;background:var(--paper);vertical-align:-6px;margin-right:12px;transition:background .2s}
-.todo input:checked+span::before{background:var(--green);content:"✓";text-align:center;line-height:18px;font-size:18px}
+.todo input:checked+span::before{background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.8 12.6l4.1 4.1 8.3-8.9' fill='none' stroke='%233E3A39' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/17px 17px no-repeat}
 .todo input:checked+span{text-decoration:line-through;opacity:.6}
 .prog{font-size:14px;margin:-6px 0 10px}
 .hs{display:grid;gap:14px}
@@ -101,12 +101,29 @@ footer{margin-top:34px;font-size:13px;text-align:center}
 .pc svg{display:block;width:100%;height:auto;border-bottom:3px solid var(--ink)}
 .bd2{padding:12px 16px 16px}.bd2 h3{margin:0 0 4px;font-size:20px}.bd2 p{margin:6px 0;font-size:14px}.bd2 a{color:var(--ink)}
 .pc .x{position:absolute;top:10px;right:10px;width:38px;height:38px;border:3px solid var(--ink);border-radius:50%;background:var(--yellow);font:inherit;color:var(--ink);cursor:pointer}
-#tl li[data-k]{cursor:pointer}#tl li[data-k] .nm::before{content:"📍";margin-right:4px}
+#tl li[data-k]{cursor:pointer}
+.ic{width:1em;height:1em;vertical-align:-.16em;flex:none}
+h2 .ic{margin-right:7px;vertical-align:-.13em}
+nav b .ic{margin-right:4px}
+.nm .ic,.nt .ic,.note .ic,.mp .ic,.bd2 .ic{margin-right:5px}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<nav><b>🌸 東北賞櫻</b><div><a href="#flight">航班</a><a href="#plan">行程</a><a href="#todo">待辦</a><a href="#stay">住宿</a><a href="#cost">費用</a></div></nav>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-sakura" viewBox="0 0 24 24"><g stroke="#3E3A39" stroke-width="2" fill="#F2A497"><circle cx="12" cy="5.6" r="3.9"/><circle cx="18.1" cy="10" r="3.9"/><circle cx="15.8" cy="17.2" r="3.9"/><circle cx="8.2" cy="17.2" r="3.9"/><circle cx="5.9" cy="10" r="3.9"/><circle cx="12" cy="12" r="2.4" fill="#F6D27A"/></g></symbol>
+<symbol id="i-plane" viewBox="0 0 24 24"><path d="M12 1.8c1.4 0 2.3 2 2.3 4.6v2.4l7.4 4.4v2.4l-7.4-2.3v4.4l2.4 1.8v1.8L12 20.4l-4.7.9v-1.8l2.4-1.8v-4.4l-7.4 2.3v-2.4l7.4-4.4V6.4c0-2.6.9-4.6 2.3-4.6z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><g stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.4" width="18.8" height="17" rx="3.6" fill="#FFFCF6"/><path d="M2.6 10.2h18.8" fill="none"/><path d="M7.5 2v4.2M16.5 2v4.2" fill="none"/><circle cx="8.2" cy="14.6" r="1.7" fill="#F2A497" stroke="none"/><circle cx="14" cy="14.6" r="1.7" fill="#A8D3E6" stroke="none"/><circle cx="8.2" cy="18.3" r="1.7" fill="#B9DAA5" stroke="none"/></g></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><g stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="#B9DAA5"/><path d="M7.2 12.3l3.3 3.3 6.3-6.9" fill="none" stroke-width="2.6"/></g></symbol>
+<symbol id="i-bed" viewBox="0 0 24 24"><g stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 18.2V6.4" fill="none"/><rect x="2.6" y="11.6" width="18.8" height="6.6" rx="2.5" fill="#F6D27A"/><rect x="5.2" y="7.9" width="7" height="3.8" rx="1.9" fill="#FFFCF6"/><path d="M4.6 18.2v2.6M19.4 18.2v2.6" fill="none"/></g></symbol>
+<symbol id="i-coin" viewBox="0 0 24 24"><g stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2" fill="#F6D27A"/><path d="M8.3 7.4L12 12l3.7-4.6M12 12v4.9M8.9 13h6.2M8.9 15.2h6.2" fill="none"/></g></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><g stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"><path d="M12 22.2s7.4-7.6 7.4-12.3a7.4 7.4 0 1 0-14.8 0C4.6 14.6 12 22.2 12 22.2z" fill="#F2A497"/><circle cx="12" cy="9.6" r="2.7" fill="#FFFCF6"/></g></symbol>
+<symbol id="i-train" viewBox="0 0 24 24"><g stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2.6" width="16" height="14.8" rx="5" fill="#A8D3E6"/><rect x="7.6" y="5.6" width="8.8" height="4.4" rx="1.6" fill="#FFFCF6"/><path d="M4 13.2h16" fill="none"/><path d="M8.4 21.4l2.2-4M15.6 21.4l-2.2-4" fill="none"/></g></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6.6 6.6l10.8 10.8M17.4 6.6L6.6 17.4" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.6h10.2a4.3 4.3 0 0 0 .5-8.6 6.3 6.3 0 0 0-11.8 1.7A3.6 3.6 0 0 0 7 18.6z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><g stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"><path d="M1.8 12S5.6 5.8 12 5.8 22.2 12 22.2 12 18.4 18.2 12 18.2 1.8 12 1.8 12z" fill="#FFFCF6"/><circle cx="12" cy="12" r="3.2" fill="#A8D3E6"/></g></symbol>
+</defs></svg>
+<nav><b><svg class="ic"><use href="#i-sakura"/></svg>東北賞櫻</b><div><a href="#flight">航班</a><a href="#plan">行程</a><a href="#todo">待辦</a><a href="#stay">住宿</a><a href="#cost">費用</a></div></nav>
 <main>
 <header class="hero box">
 <svg viewBox="0 0 360 230" role="img" aria-label="插畫：盛開的櫻花樹、岩手山、東北新幹線，以及一家四口：阿公、阿嬤、媽媽與小女孩">
@@ -133,33 +150,34 @@ footer{margin-top:34px;font-size:13px;text-align:center}
 <div class="count" aria-live="polite">還有 <b id="cd">–</b> 天出發</div>
 </header>
 
-<section id="flight"><h2>✈️ 航班</h2><div class="fl">
+<section id="flight"><h2><svg class="ic"><use href="#i-plane"/></svg>航班</h2><div class="fl">
 <div class="fc box"><span class="tag c2">去程・4/17（六）・阿公阿嬤</span><div class="row"><div><div class="t">09:55</div><small>桃園 TPE</small></div><div class="line"><span>BR122・3h25m</span></div><div style="text-align:right"><div class="t">14:20</div><small>青森 AOJ</small></div></div><div class="note">長榮航空 EVA Air　直飛</div></div>
 <div class="fc box"><span class="tag c0">去程・4/20（二）・媽媽與小妹妹</span><div class="row"><div><div class="t">09:55</div><small>桃園 TPE</small></div><div class="line"><span>BR122・3h25m</span></div><div style="text-align:right"><div class="t">14:20</div><small>青森 AOJ</small></div></div><div class="note">長榮航空 EVA Air　直飛</div></div>
 <div class="fc box"><span class="tag c3">回程・4/25（日）・4 人</span><div class="row"><div><div class="t">15:30</div><small>青森 AOJ</small></div><div class="line"><span>BR121・4h30m</span></div><div style="text-align:right"><div class="t">19:00</div><small>桃園 TPE</small></div></div><div class="note">長榮航空 EVA Air　直飛</div></div>
 </div><p class="note">※ 目前查到的班表為 2026/10/25–2027/3/27，4 月的航班時刻出表後須再確認。</p></section>
 
-<section id="plan"><h2>🗓 每日行程</h2>
-<p class="note" style="margin:0 0 8px">阿公阿嬤全程同行；媽媽與小妹妹 4/19 先住桃園，4/20 搭機直接到青森市飯店會合，一起到最後。日期下方的人數就是當天的同行人數。點選有 📍 的地點可以看介紹小卡。</p><div class="tabs" role="tablist" id="tabs"></div>
+<section id="plan"><h2><svg class="ic"><use href="#i-cal"/></svg>每日行程</h2>
+<p class="note" style="margin:0 0 8px">阿公阿嬤全程同行；媽媽與小妹妹 4/19 先住桃園，4/20 搭機直接到青森市飯店會合，一起到最後。日期下方的人數就是當天的同行人數。點選有 <svg class="ic" style="margin:0 2px"><use href="#i-pin"/></svg> 的地點可以看介紹小卡。</p><div class="tabs" role="tablist" id="tabs"></div>
 <div class="box" style="padding:16px 14px 4px"><div class="dh" id="dh"></div><ul id="tl"></ul></div></section>
 
-<section id="todo"><h2>✅ 出發前待辦</h2><div class="prog" id="prog"></div><ul class="todo box" id="todol"></ul></section>
+<section id="todo"><h2><svg class="ic"><use href="#i-check"/></svg>出發前待辦</h2><div class="prog" id="prog"></div><ul class="todo box" id="todol"></ul></section>
 
-<section id="stay"><h2>🏨 住宿</h2><div class="hs" id="hs"></div></section>
-<section id="cost"><h2>💴 費用</h2><div class="tabs" id="ctabs" role="tablist"></div><div class="box" style="padding:6px 14px 14px"><ul class="cl" id="cl"></ul><div class="ct" id="ct" aria-live="polite"></div><button class="add" id="exb" style="margin-top:10px;background:var(--sky)">匠出費用資料</button><textarea id="exo" hidden readonly rows="5" aria-label="費用資料" style="width:100%;margin-top:8px;font:inherit;font-size:12px;border:3px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);padding:8px"></textarea><div class="note" id="exm"></div></div><p class="note"><span id="sync">顯示的是發佈時的金額；在此修改只會存在你的瀏覽器。</span>　金額由擁有者填寫並選擇幣別，總計依幣別分開計算。</p></section>
+<section id="stay"><h2><svg class="ic"><use href="#i-bed"/></svg>住宿</h2><div class="hs" id="hs"></div></section>
+<section id="cost"><h2><svg class="ic"><use href="#i-coin"/></svg>費用</h2><div class="tabs" id="ctabs" role="tablist"></div><div class="box" style="padding:6px 14px 14px"><ul class="cl" id="cl"></ul><div class="ct" id="ct" aria-live="polite"></div><button class="add" id="exb" style="margin-top:10px;background:var(--sky)">匯出費用資料</button><textarea id="exo" hidden readonly rows="5" aria-label="費用資料" style="width:100%;margin-top:8px;font:inherit;font-size:12px;border:3px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--ink);padding:8px"></textarea><div class="note" id="exm"></div></div><p class="note"><span id="sync">顯示的是發佈時的金額；在此修改只會存在你的瀏覽器。</span>　金額由擁有者填寫並選擇幣別，總計依幣別分開計算。</p></section>
 <footer>交通時間為初步估算，未含候車、上下車、步行及轉乘時間。<br>航班與飯店接駁時刻須再確認。</footer>
 </main><div class="cardov" id="ov" aria-hidden="true"><div class="pc box" id="pc" role="dialog" aria-modal="true" aria-label="地點介紹"></div></div>
 <script>
-var T={"飛機":0,"新幹線":1,"高鐵":0,"機捷":2,"計程車":2,"包車":3,"接駁巴士":3,"費用":1};
+var T={"飛機":0,"新幹線":1,"高鐵":0,"機捷":2,"計程車":2,"包車":3,"接駁巴士":3,"費用":1,"JR":0,"步行":3};
+var MAP=function(q,t){return '<a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)+'" target="_blank" rel="noopener">'+(t||"在地圖開啟")+'↗</a>'};
 var D=[
 {d:"D0",dt:"4/16",w:"五",p:2,t:"高雄 → 桃園",s:"桃園",i:[["高雄出發",[["高鐵","約 1 小時 35 分"]]],["抵達桃園，轉乘",[["機捷","約 20–40 分"]],0,"接駁亦可"],["入住桃園，準備隔天早班機"]]},
 {d:"D1",dt:"4/17",w:"六",p:2,t:"桃園 → 青森 → 盛岡",s:"盛岡",i:[["桃園機場起飛 BR122",[["飛機","約 3 小時 25 分"]],0,"09:55 起飛，14:20 抵達"],["青森機場 → 新青森站",[["計程車","約 30–40 分"]]],["新青森 → 盛岡",[["新幹線","東北新幹線 45–60 分"]]],["入住盛岡"]]},
 {d:"D2",dt:"4/18",w:"日",p:2,t:"盛岡 → 北上 → 盛岡",s:"盛岡",i:[["盛岡 → 北上",[["新幹線","東北新幹線 約 20 分"]]],["北上展勝地",[["計程車","約 10–15 分"]],1,"東北知名的櫻花名所"],["盛岡城跡公園",[["計程車","回程同方式"]],0,"回盛岡後散步賞櫻"]]},
 {d:"D3",dt:"4/19",w:"一",p:2,t:"盛岡 → 角館 → 盛岡",s:"盛岡",i:[["盛岡 → 角館",[["新幹線","秋田新幹線 45–55 分"]]],["角館武家屋敷",[["計程車","約 5–10 分"]],1,"黑板牆與枝垂櫻"],["檜木內川堤",[["計程車","約 5–10 分"]],1,"櫻花隧道"],["返回盛岡",[["新幹線","回程同方式"]],0,"媽媽與小妹妹今晚住桃園，4/20 飛青森"]]},
-{d:"D4",dt:"4/20",w:"二",p:"m",t:"盛岡 → 新青森 → 青森市",s:"青森市",i:[["盛岡石割櫻",[["計程車","市區約 10–15 分"]],1,"長在巨大岩石縫裡的櫻花","g"],["盛岡 → 新青森",[["新幹線","東北新幹線 45–60 分"]],0,"","g"],["新青森 → 飯店",[["計程車","約 15–25 分"]],0,"","g"],["飯店會合",[["飛機","BR122・09:55 → 14:20（媽媽與小妹妹）"]],0,"媽媽與小妹妹 4/19 先住桃園，4/20 搭機抵達青森後直接到飯店，之後四人同行","a"],["入住青森市",[],0,"","a"]]},
-{d:"D5",dt:"4/21",w:"三",p:4,t:"青森 → 弘前 → 青森",s:"青森市",i:[["弘前公園、弘前城",[["包車","全日包車，單程 60–90 分"]],1,"日本賞櫻名所，護城河花筏"],["返回青森市",[["包車","約 60–90 分"]]]]},
+{d:"D4",dt:"4/20",w:"二",p:"m",t:"盛岡 → 新青森 → 青森市",s:"青森市",i:[["阿公阿嬤辦理退房",[],0,"Daiwa Roynet Hotel 盛岡站前","g","11:00<br>前"],["盛岡石割櫻",[["計程車","市區約 10–15 分"]],1,"長在巨大岩石縫裡的櫻花","g","10:00<br>–14:00"],["盛岡 → 新青森",[["新幹線","東北新幹線 45–60 分"]],0,"","g","15:00<br>–16:00"],["新青森 → 飯店",[["計程車","約 15–25 分"]],0,"","g","16:00<br>–16:30"],["飯店會合",[["飛機","BR122・09:55 → 14:20（媽媽與小妹妹）"]],0,"媽媽與小妹妹 4/19 先住桃園，4/20 搭機抵達青森後直接到飯店，之後四人同行","a","17:00"],["LOVINA 晚餐",[],0,"","a","18:00"]]},
+{d:"D5",dt:"4/21",w:"三",p:4,t:"青森 → 弘前 → 青森（JR＋計程車）",s:"青森市",i:[["從飯店出發，前往青森車站",[["步行","或計程車，約 5–15 分"]],0,"","","09:00"],["青森 → 弘前",[["JR","奧羽本線，約 45–55 分"]],0,"班次較疏，請先查當日時刻表","","09:30"],["弘前車站 → 弘前公園",[["計程車","約 10 分"]],0,"亦可搭弘南巴士往市役所方向約 15 分","","10:30"],["弘前公園、弘前城",[],1,"日本賞櫻名所，護城河花筏","","11:00"],["從弘前回程",[["計程車","至弘前車站約 10 分"],["JR","奧羽本線，約 45–55 分"]],0,"","","15:00"],["抵達青森車站",[],0,"","","16:00"],["青森市區吃晚餐",[],0,"","","17:00"],["櫻野百貨青森店",[["步行","青森車站附近"]],0,"さくら野百貨店 青森店　"+MAP("さくら野百貨店 青森店"),"","18:30"]]},
 {d:"D6",dt:"4/22",w:"四",p:4,t:"青森市區 / 弘前備用日",s:"青森市",i:[["青森市區輕鬆觀光",[["計程車","市區約 5–15 分"]]],["弘前備用賞櫻日",[["包車","往返約 2–3 小時"]],0,"依花況與天氣二選一"]]},
-{d:"D7",dt:"4/23",w:"五",p:4,t:"青森市 → 奧入瀨",s:"奧入瀨",i:[["Daiwa Roynet Hotel 青森退房",[],0,"","","11:00"],["青森市區吃午餐、悠閒逛逛",[],0,"","","12:00<br>–14:30"],["搭乘接駁巴士（青森車站西口廣場 → 奧入瀨溪流飯店）",[["接駁巴士","15:00 發車・約 120 分"],["費用","單程 ¥13,000（4 人）"]],0,"單程（含稅）大人 ¥3,500、4–11 歲 ¥2,500、0–3 歲佔位 ¥2,500，不佔位免費；本行 3 位大人＋1 位 5 歲孩子。付費服務，飯店休館日停駛。","","15:00"],["抵達奧入瀨溪流飯店，入住",[],0,"","","17:00"],["青森蘋果廚房用餐",[],0,"","","18:00"]]},
+{d:"D7",dt:"4/23",w:"五",p:4,t:"青森市 → 奧入瀨",s:"奧入瀨",i:[["Daiwa Roynet Hotel 青森退房",[],0,"","","11:00"],["青森市區吃午餐",[],0,"","","11:30<br>–13:00"],["A-Factory 購買土產",[["步行","青森車站旁"]],0,'青森蘋果主題的伴手禮店　<a href="https://nicklee.tw/3375/a-factory/" target="_blank" rel="noopener">店家介紹↗</a>　'+MAP("A-FACTORY 青森"),"","13:00<br>–14:30"],["搭乘接駁巴士（青森車站西口廣場 → 奧入瀨溪流飯店）",[["接駁巴士","15:00 發車・約 120 分"],["費用","單程 ¥13,000（4 人）"]],0,"單程（含稅）大人 ¥3,500、4–11 歲 ¥2,500、0–3 歲佔位 ¥2,500，不佔位免費；本行 3 位大人＋1 位 5 歲孩子。付費服務，飯店休館日停駛。","","15:00"],["抵達奧入瀨溪流飯店，入住",[],0,"","","17:00"],["青森蘋果廚房用餐",[],0,"","","18:00"]]},
 {d:"D8",dt:"4/24",w:"六",p:4,t:"奧入瀨溪流飯店・導覽與手作燈",s:"奧入瀨",i:[["享用飯店早餐",[],0,"","","08:00"],["參與飯店導覽行程「奥入濑与十和田湖冬季之旅」",[["導覽","全長約 2 小時"],["費用","每人 ¥3,850"]],0,"需付費，每人日幣 3,850 圓","","10:00"],["回到飯店，找地方吃午餐",[],0,"","","12:00"],["參加飯店活動「製作自己專屬的燈」",[["費用","每人 ¥6,000～¥30,000"]],0,"需付費，每人日幣 6,000～30,000 圓，價格因葡蘆的大小而異","","16:00"],["飯店青森蘋果廚房用餐",[],0,"","","17:30"]]},
 {d:"D9",dt:"4/25",w:"日",p:4,t:"奧入瀨 → 青森 → 桃園 → 高雄",s:"—",i:[["奧入瀨溪流飯店辦理退房",[],0,"","","11:40"],["上車，包車前往青森機場",[["包車","約 120 分鐘"]],0,"包車前往青森機場<br><a href='https://hk-grp.or.jp/publics/index/305/' target='_blank' rel='noopener'>業者資訊頁面（接洽用）↗</a>","","12:00"],["抵達青森機場",[],0,"","","14:00"],["青森機場起飛 BR121",[["飛機","約 4–4.5 小時"]],0,"","","15:30"],["抵達桃園機場",[],0,"","","19:00"],["搭高鐵回高雄",[["高鐵","約 1 小時 30 分"]],0,"預計 20:30 上車","","20:30"],["抵達高雄左營站",[],0,"","","22:00"]]}
 ];
@@ -187,7 +205,7 @@ lake:'<path d="M0 112l70-48 60 48 50-36 80 36z" fill="#B9DAA5"/><rect y="112" wi
 return o+(m[t]||g)+'</svg>'}
 var ov=$("ov");
 function cl(){ov.classList.remove("on");ov.setAttribute("aria-hidden","true")}
-function openCard(k){var p=P[k];$("pc").innerHTML=sc(p.t)+'<div class="bd2"><h3>'+k+'</h3><p>'+p.d+'</p><p>🌸 花期：'+p.b+'</p><p>🚉 交通：'+p.j+'</p><p class="note">'+(p.u?'簡介參考自 <a href="https://tohoku.letsgojp.com/archives/10251/" target="_blank" rel="noopener">東北賞櫻勝地大集合↗</a>（內有實景照片）':'簡介為一般旅遊資訊整理，請以官方公告為準')+'</p></div><button class="x" aria-label="關閉">✕</button>';ov.classList.add("on");ov.setAttribute("aria-hidden","false");$("pc").querySelector("button").focus()}
+function openCard(k){var p=P[k];$("pc").innerHTML=sc(p.t)+'<div class="bd2"><h3>'+k+'</h3><p>'+p.d+'</p><p><svg class="ic"><use href="#i-sakura"/></svg>花期：'+p.b+'</p><p><svg class="ic"><use href="#i-train"/></svg>交通：'+p.j+'</p><p class="note">'+(p.u?'簡介參考自 <a href="https://tohoku.letsgojp.com/archives/10251/" target="_blank" rel="noopener">東北賞櫻勝地大集合↗</a>（內有實景照片）':'簡介為一般旅遊資訊整理，請以官方公告為準')+'</p></div><button class="x" aria-label="關閉"><svg class="ic" style="width:1.1em;height:1.1em;vertical-align:-.2em"><use href="#i-x"/></svg></button>';ov.classList.add("on");ov.setAttribute("aria-hidden","false");$("pc").querySelector("button").focus()}
 ov.onclick=function(e){if(e.target==ov||e.target.className=="x")cl()};
 document.addEventListener("keydown",function(e){if(e.key=="Escape")cl()});
 var tabs=$("tabs"),tl=$("tl");
@@ -202,7 +220,7 @@ $("dh").innerHTML=x.d+"　"+x.t+"<small>"+x.dt+"（"+x.w+"）　住宿：<b>"+x.
 tl.className="";
 tl.innerHTML=x.i.map(function(it,k){
 var g=(it[1]||[]).map(function(a){return '<span class="tg c'+(T[a[0]]||0)+'">'+a[0]+"・"+a[1]+"</span>"}).join("");
-return '<li class="box'+(it[2]==1?" must":"")+'" style="--i:'+k+'"'+(pk(it[0])?' data-k="'+pk(it[0])+'" tabindex="0" role="button"':'')+'><div class="nm">'+(it[5]?'<span class="tm">'+it[5]+'</span>':'')+it[0]+"</div>"+g+(it[4]?'<span class="tg '+(it[4]=="g"?"c3":"c1")+'">'+(it[4]=="g"?"阿公阿嬤":"4 人同行")+"</span>":"")+(it[3]?'<div class="nt">'+it[3]+"</div>":"")+"</li>"}).join("");
+return '<li class="box'+(it[2]==1?" must":"")+'" style="--i:'+k+'"'+(pk(it[0])?' data-k="'+pk(it[0])+'" tabindex="0" role="button"':'')+'><div class="nm">'+(it[5]?'<span class="tm">'+it[5]+'</span>':'')+(pk(it[0])?'<svg class="ic"><use href="#i-pin"/></svg>':'')+it[0]+"</div>"+g+(it[4]?'<span class="tg '+(it[4]=="g"?"c3":"c1")+'">'+(it[4]=="g"?"阿公阿嬤":"4 人同行")+"</span>":"")+(it[3]?'<div class="nt">'+it[3]+"</div>":"")+"</li>"}).join("");
 void tl.offsetWidth;tl.className="pop"+(x.i.some(function(it){return it[5]})?" wt":"");
 }
 show(1);
@@ -210,7 +228,7 @@ show(1);
 var left=Math.ceil((new Date(2027,3,16)-new Date())/864e5);
 $("cd").textContent=Math.max(left,0);
 /* 待辦 */
-var L=["確認護照效期（6 個月以上）","確認 BR122／BR121 的 4 月航班時刻","預訂高雄 ⇄ 桃園的高鐵與機捷","預訂東北新幹線與秋田新幹線座位","預約弘前全日包車（4/21，4 人）","預約奧入瀨飯店接駁與機場包車","查詢櫻花開花預報，決定 D6 備用日","準備 eSIM／網卡與日幣現金","購買旅遊保險","確認媽媽與小妹妹 4/20 抵達青森機場後到飯店的交通方式","向包車公司確認是否提供 5 歲小妹妹的兒童座椅"];
+var L=["確認護照效期（6 個月以上）","確認 BR122／BR121 的 4 月航班時刻","預訂高雄 ⇄ 桃園的高鐵與機捷","預訂東北新幹線與秋田新幹線座位","查詢 4/21 青森 ⇄ 弘前的 JR 奧羽本線時刻表","預約奧入瀨飯店接駁與機場包車","查詢櫻花開花預報，決定 D6 備用日","準備 eSIM／網卡與日幣現金","購買旅遊保險","確認媽媽與小妹妹 4/20 抵達青森機場後到飯店的交通方式","向包車公司確認是否提供 5 歲小妹妹的兒童座椅"];
 var st={};try{st=JSON.parse(localStorage.getItem("tohoku")||"{}")}catch(e){}
 function prog(){var c=L.filter(function(_,k){return st[k]}).length;$("prog").textContent="已完成 "+c+" / "+L.length+" 項"}
 $("todol").innerHTML=L.map(function(t,k){return '<li><label><input type="checkbox" data-k="'+k+'"'+(st[k]?" checked":"")+"><span>"+t+"</span></label></li>"}).join("");
@@ -238,7 +256,7 @@ function sv(){try{localStorage.setItem("tohokuCost",JSON.stringify({ver:BASEV,cs
 function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
 function csum(){var s={TWD:0,JPY:0};CS.cars.forEach(function(r){s[r.c=="TWD"?"TWD":"JPY"]+=parseFloat(r.a)||0});return s}
 function addS(a,b){return{TWD:a.TWD+b.TWD,JPY:a.JPY+b.JPY}}
-function carH(){return CS.cars.map(function(r,i){return '<li data-i="'+i+'"><div class="cr"><input data-f="d" value="'+esc(r.d)+'" placeholder="日期（例：4/21）" aria-label="日期"><input data-f="n" value="'+esc(r.n)+'" placeholder="性質（例：弘前全日包車）" aria-label="性質"><div class="ci"><input inputmode="decimal" data-f="a" value="'+esc(r.a)+'" placeholder="金額" aria-label="金額"><select data-f="c" aria-label="幣別"><option'+(r.c=="TWD"?" selected":"")+'>TWD</option><option'+(r.c!="TWD"?" selected":"")+'>JPY</option></select><button class="del" data-del="'+i+'" aria-label="刪除">✕</button></div></div></li>'}).join("")+'<li><button class="add" id="addc">＋ 新增一筆包車</button></li>'}
+function carH(){return CS.cars.map(function(r,i){return '<li data-i="'+i+'"><div class="cr"><input data-f="d" value="'+esc(r.d)+'" placeholder="日期（例：4/21）" aria-label="日期"><input data-f="n" value="'+esc(r.n)+'" placeholder="性質（例：弘前全日包車）" aria-label="性質"><div class="ci"><input inputmode="decimal" data-f="a" value="'+esc(r.a)+'" placeholder="金額" aria-label="金額"><select data-f="c" aria-label="幣別"><option'+(r.c=="TWD"?" selected":"")+'>TWD</option><option'+(r.c!="TWD"?" selected":"")+'>JPY</option></select><button class="del" data-del="'+i+'" aria-label="刪除"><svg class="ic"><use href="#i-x"/></svg></button></div></div></li>'}).join("")+'<li><button class="add" id="addc">＋ 新增一筆包車</button></li>'}
 $("cl").onclick=function(e){var t=e.target;if(t.id=="addc"){CS.cars.push({d:"",n:"",a:"",c:"JPY"})}else if(t.dataset.del!==undefined){CS.cars.splice(+t.dataset.del,1);if(!CS.cars.length)CS.cars.push({d:"",n:"",a:"",c:"JPY"})}else return;sv();cshow()};
 $("cl").oninput=function(e){var t=e.target,f=t.dataset.f;if(f){CS.cars[+t.closest("li").dataset.i][f]=t.value;sv();ctot();return}var k=t.dataset.k;if(!k)return;var v=CS[k]||(CS[k]={});if(e.target.tagName=="INPUT")v.a=e.target.value;else v.c=e.target.value;try{localStorage.setItem("tohokuCost",JSON.stringify(CS))}catch(x){}ctot()};
 cshow();
@@ -246,13 +264,13 @@ function ex(){var t=JSON.stringify({ver:BASEV,cs:CS}),a=$("exo"),m=$("exm"),h="�
 try{var b=new Blob([t],{type:"application/json"}),l=document.createElement("a");l.href=URL.createObjectURL(b);l.download="tohoku-cost.json";l.click()}catch(e){}}
 $("exb").onclick=ex;
 var cdb=null,own=false,tm=0;
-function ro(){var s=$("sync");if(!cdb)return;if(own){s.textContent="☁️ 已同步到雲端，家人可查看。"}else{s.textContent="👀 唯讀：只有行程擁有者能修改。";[].forEach.call($("cl").querySelectorAll("input,select,button"),function(e){e.disabled=true})}}
+function ro(){var s=$("sync");if(!cdb)return;if(own){s.innerHTML='<svg class="ic" style="margin-right:5px"><use href="#i-cloud"/></svg>已同步到雲端，家人可查看。'}else{s.innerHTML='<svg class="ic" style="margin-right:5px"><use href="#i-eye"/></svg>唯讀：只有行程擁有者能修改。';[].forEach.call($("cl").querySelectorAll("input,select,button"),function(e){e.disabled=true})}}
 function push(){clearTimeout(tm);tm=setTimeout(function(){cdb.doc("cost/data").set({v:JSON.stringify(CS)}).catch(function(){})},600)}
 (async function(){try{var u=await claude.use("user");own=u?await u.isOwner():false;cdb=await claude.use("db")}catch(e){cdb=null}
 if(!cdb)return;ro();
 cdb.doc("cost/data").onSnapshot(function(s){if(s.exists){var r;try{r=JSON.parse(s.data().v)}catch(e){return}if(JSON.stringify(r)!==JSON.stringify(CS)&&!$("cl").contains(document.activeElement)){CS=r;if(!CS.cars||!CS.cars.length)CS.cars=[{d:"",n:"",a:"",c:"JPY"}];cshow()}}else if(own)push()},function(){})})();
 /* 住宿 */
-$("hs").innerHTML=[["桃園機場假日酒店","4/16–4/17","1 晚・2 人","c2","阿公阿嬤・飛機前一晚，靠近機場","","https://www.agoda.com/zh-tw/hotel-orchard-park-new-wing_2/hotel/taoyuan-tw.html?countryId=140&finalPriceView=2&isShowMobileAppPrice=false&cid=1922895&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-17&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=TWD&isFreeOccSearch=false&tag=e9ea26c2-c046-468f-939d-97d11075d6e0&flightSearchCriteria=[object%20Object]&los=3&searchrequestid=8ef34f20-f213-45ca-863b-6fd79dfe0182"],["Daiwa Roynet Hotel 盛岡站前","4/17–4/20","3 晚・2 人","c0","盛岡・北上、角館、石割櫻的據點","","","","距離盛岡車站 250 公尺，步行約 4 分鐘"],["桃園機場假日酒店","4/19–4/20","1 晚・2 人","c2","媽媽與小妹妹・隔天搭機前往青森，直接到飯店會合","","https://www.agoda.com/zh-tw/hotel-orchard-park-new-wing_2/hotel/taoyuan-tw.html?countryId=140&finalPriceView=2&isShowMobileAppPrice=false&cid=1922895&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-17&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=TWD&isFreeOccSearch=false&tag=e9ea26c2-c046-468f-939d-97d11075d6e0&flightSearchCriteria=[object%20Object]&los=3&searchrequestid=8ef34f20-f213-45ca-863b-6fd79dfe0182"],["Daiwa Roynet Hotel 青森","4/20–4/23","3 晚・4 人","c1","青森市・弘前賞櫻與市區觀光","","","","距離青森車站 450 公尺，步行約 6 分鐘"],["奧入瀨溪流飯店","4/23–4/25","2 晚・4 人","c3","溪流與十和田湖，退房後包車赴機場。官方接駁巴士（付費）：青森車站西口廣場 15:00 發車、飯店 10:30 發車，約 120 分，休館日停駛","","","奧入瀨溪流飯店 十和田市"]].map(function(h){return '<div class="hc box"><span class="bd '+h[3]+'">'+h[2]+"</span><h3>"+(h[6]?'<a href="'+h[6].replace(/&/g,"&amp;")+'" target="_blank" rel="noopener">'+h[0]+'</a>':h[0])+"</h3><div>"+h[1]+"</div><div class=\"nt\">"+h[4]+(h[8]?'<small>'+h[8]+'</small>':'')+'</div><a class="mp" href="https://www.google.com/maps/search/?api=1&amp;query='+encodeURIComponent(h[7]||h[0])+'" target="_blank" rel="noopener">📍 在地圖開啟</a></div>'}).join("");
+$("hs").innerHTML=[["桃園機場假日酒店","4/16–4/17","1 晚・2 人","c2","阿公阿嬤・飛機前一晚，靠近機場","","https://www.agoda.com/zh-tw/hotel-orchard-park-new-wing_2/hotel/taoyuan-tw.html?countryId=140&finalPriceView=2&isShowMobileAppPrice=false&cid=1922895&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-17&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=TWD&isFreeOccSearch=false&tag=e9ea26c2-c046-468f-939d-97d11075d6e0&flightSearchCriteria=[object%20Object]&los=3&searchrequestid=8ef34f20-f213-45ca-863b-6fd79dfe0182"],["Daiwa Roynet Hotel 盛岡站前","4/17–4/20","3 晚・2 人","c0","盛岡・北上、角館、石割櫻的據點","","","","距離盛岡車站 250 公尺，步行約 4 分鐘"],["桃園機場假日酒店","4/19–4/20","1 晚・2 人","c2","媽媽與小妹妹・隔天搭機前往青森，直接到飯店會合","","https://www.agoda.com/zh-tw/hotel-orchard-park-new-wing_2/hotel/taoyuan-tw.html?countryId=140&finalPriceView=2&isShowMobileAppPrice=false&cid=1922895&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2027-04-17&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=TWD&isFreeOccSearch=false&tag=e9ea26c2-c046-468f-939d-97d11075d6e0&flightSearchCriteria=[object%20Object]&los=3&searchrequestid=8ef34f20-f213-45ca-863b-6fd79dfe0182"],["Daiwa Roynet Hotel 青森","4/20–4/23","3 晚・4 人","c1","青森市・弘前賞櫻與市區觀光","","","","距離青森車站 450 公尺，步行約 6 分鐘"],["奧入瀨溪流飯店","4/23–4/25","2 晚・4 人","c3","溪流與十和田湖，退房後包車赴機場。官方接駁巴士（付費）：青森車站西口廣場 15:00 發車、飯店 10:30 發車，約 120 分，休館日停駛","","","奧入瀨溪流飯店 十和田市"]].map(function(h){return '<div class="hc box"><span class="bd '+h[3]+'">'+h[2]+"</span><h3>"+(h[6]?'<a href="'+h[6].replace(/&/g,"&amp;")+'" target="_blank" rel="noopener">'+h[0]+'</a>':h[0])+"</h3><div>"+h[1]+"</div><div class=\"nt\">"+h[4]+(h[8]?'<small>'+h[8]+'</small>':'')+'</div><a class="mp" href="https://www.google.com/maps/search/?api=1&amp;query='+encodeURIComponent(h[7]||h[0])+'" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"/></svg>在地圖開啟</a></div>'}).join("");
 </script>
 </body>
 </html>
