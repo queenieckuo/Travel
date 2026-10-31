@@ -100,7 +100,9 @@ footer{margin-top:34px;font-size:15px;text-align:center}
 .pc{position:relative;width:100%;max-width:420px;max-height:88%;overflow:auto;animation:pop .5s cubic-bezier(.3,1.6,.5,1) both}
 .pc>svg{display:block;width:100%;height:auto;border-bottom:3px solid var(--ink)}
 .bd2{padding:12px 16px 16px}.bd2 h3{margin:0 0 4px;font-size:20px}.bd2 p{margin:7px 0;font-size:16px}.bd2 a{color:var(--ink)}
-.pc .x{position:absolute;top:10px;right:10px;width:38px;height:38px;border:3px solid var(--ink);border-radius:50%;background:var(--yellow);font:inherit;color:var(--ink);cursor:pointer}
+.pchd{position:sticky;top:0;height:0;z-index:3}
+.pc .x{position:absolute;top:10px;right:10px;width:48px;height:48px;padding:0;border:3px solid var(--ink);border-radius:50%;background:var(--yellow);font:inherit;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.pc .x .ic{width:24px;height:24px;margin:0;vertical-align:0;pointer-events:none}
 #tl li[data-k]{cursor:pointer}
 .ic{width:1em;height:1em;vertical-align:-.16em;flex:none}
 h2 .ic{margin-right:7px;vertical-align:-.13em}
@@ -211,8 +213,8 @@ lake:'<path d="M0 112l70-48 60 48 50-36 80 36z" fill="#B9DAA5"/><rect y="112" wi
 return o+(m[t]||g)+'</svg>'}
 var ov=$("ov");
 function cl(){ov.classList.remove("on");ov.setAttribute("aria-hidden","true")}
-function openCard(k){var p=P[k];$("pc").innerHTML=sc(p.t)+'<div class="bd2"><h3>'+k+'</h3><p>'+p.d+'</p><p><svg class="ic"><use href="#i-sakura"/></svg>花期：'+p.b+'</p><p><svg class="ic"><use href="#i-train"/></svg>交通：'+p.j+'</p><p class="note">'+(p.u?'簡介參考自 <a href="https://tohoku.letsgojp.com/archives/10251/" target="_blank" rel="noopener">東北賞櫻勝地大集合'+EXT+'</a>（內有實景照片）':'簡介為一般旅遊資訊整理，請以官方公告為準')+'</p></div><button class="x" aria-label="關閉"><svg class="ic" style="width:1.1em;height:1.1em;vertical-align:-.2em"><use href="#i-x"/></svg></button>';ov.classList.add("on");ov.setAttribute("aria-hidden","false");$("pc").querySelector("button").focus()}
-ov.onclick=function(e){if(e.target==ov||e.target.className=="x")cl()};
+function openCard(k){var p=P[k];$("pc").innerHTML='<div class="pchd"><button class="x" aria-label="關閉"><svg class="ic"><use href="#i-x"/></svg></button></div>'+sc(p.t)+'<div class="bd2"><h3>'+k+'</h3><p>'+p.d+'</p><p><svg class="ic"><use href="#i-sakura"/></svg>花期：'+p.b+'</p><p><svg class="ic"><use href="#i-train"/></svg>交通：'+p.j+'</p><p class="note">'+(p.u?'簡介參考自 <a href="https://tohoku.letsgojp.com/archives/10251/" target="_blank" rel="noopener">東北賞櫻勝地大集合'+EXT+'</a>（內有實景照片）':'簡介為一般旅遊資訊整理，請以官方公告為準')+'</p></div>';ov.classList.add("on");ov.setAttribute("aria-hidden","false");$("pc").querySelector("button").focus()}
+ov.onclick=function(e){if(e.target==ov||(e.target.closest&&e.target.closest(".x")))cl()};
 document.addEventListener("keydown",function(e){if(e.key=="Escape")cl()});
 var tabs=$("tabs"),tl=$("tl");
 tl.onclick=function(e){var li=e.target.closest("li[data-k]");if(li&&e.target.tagName!="A")openCard(li.dataset.k)};
