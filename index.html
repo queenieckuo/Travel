@@ -157,12 +157,12 @@ nav b .ic{margin-right:4px}
 </header>
 
 <section id="flight"><h2><svg class="ic"><use href="#i-plane"/></svg>航班</h2><div class="fl">
-<div class="fc box"><span class="tag c2">去程・4/19（一）・7 人</span><div class="row"><div><div class="t">13:25</div><small>高雄 KHH</small></div><div class="line"><span>IT772・3h45m</span></div><div style="text-align:right"><div class="t">18:10</div><small>仙台 SDJ</small></div></div><div class="note">台灣虎航 Tigerair Taiwan　直飛　<span class="tag c1">尚未訂票</span></div></div>
-<div class="fc box"><span class="tag c3">回程・4/26（一）・7 人</span><div class="row"><div><div class="t">19:00</div><small>仙台 SDJ</small></div><div class="line"><span>IT773・4h10m</span></div><div style="text-align:right"><div class="t">22:10</div><small>高雄 KHH</small></div></div><div class="note">台灣虎航 Tigerair Taiwan　直飛　<span class="tag c1">尚未訂票</span></div></div>
+<div class="fc box"><span class="tag c2">去程・4/19（一）</span><div class="row"><div><div class="t">13:25</div><small>高雄 KHH</small></div><div class="line"><span>IT772・3h45m</span></div><div style="text-align:right"><div class="t">18:10</div><small>仙台 SDJ</small></div></div><div class="note">台灣虎航 Tigerair Taiwan　直飛　<span class="tag c1">尚未訂票</span></div></div>
+<div class="fc box"><span class="tag c3">回程・4/26（一）</span><div class="row"><div><div class="t">19:00</div><small>仙台 SDJ</small></div><div class="line"><span>IT773・4h10m</span></div><div style="text-align:right"><div class="t">22:10</div><small>高雄 KHH</small></div></div><div class="note">台灣虎航 Tigerair Taiwan　直飛　<span class="tag c1">尚未訂票</span></div></div>
 </div><p class="note">※ 以上為預計搭乘的班次，<b>尚未實際訂票</b>；起降時刻與票價依訂票當下為準。票價須依 4/19 出發重新查詢：先前查到的 NT$48,282 是 4/17 出發、2 位大人的報價，日期與人數都已改變。</p></section>
 
 <section id="plan"><h2><svg class="ic"><use href="#i-cal"/></svg>每日行程</h2>
-<p class="note" style="margin:0 0 8px">七人全程同進同出（5 位大人、2 位小孩），4/19 出發、4/26 返台。點選有 <svg class="ic" style="margin:0 2px"><use href="#i-pin"/></svg> 的地點可以看介紹小卡。</p><div class="tabs" role="tablist" id="tabs"></div>
+<p class="note" style="margin:0 0 8px">同行七人：阿公、阿嬤、婆婆、媽媽、老公、Sina（5 歲）、小澈（7 歲）。全程同進同出，4/19 出發、4/26 返台。點選有 <svg class="ic" style="margin:0 2px"><use href="#i-pin"/></svg> 的地點可以看介紹小卡。</p><div class="tabs" role="tablist" id="tabs"></div>
 <div class="box" style="padding:16px 14px 4px"><div class="dh" id="dh"></div><ul id="tl"></ul></div></section>
 
 <section id="todo"><h2><svg class="ic"><use href="#i-check"/></svg>出發前待辦</h2><div class="prog" id="prog"></div><ul class="todo box" id="todol"></ul></section>
@@ -186,7 +186,7 @@ var D=[
 {d:"D8",dt:"4/26",w:"一",p:7,t:"奧入瀨 → 新青森 → 仙台 → 高雄",s:"—",i:[["奧入瀨溪流飯店辦理退房",[],0,"今天要一路移動到仙台搭機，行程較長，建議提早準備","","08:30"],["上車，包車前往新青森站",[["包車","約 120 分鐘"]],0,"包車前往新青森站<br><a href='https://hk-grp.or.jp/publics/index/305/' target='_blank' rel='noopener'>業者資訊頁面（接洽用）"+EXT+"</a>","","09:00"],["抵達新青森站，在站內吃午餐",[],0,"吃完再搭新幹線南下","","11:00<br>–12:30"],["新青森 → 仙台",[["新幹線","東北新幹線，約 2 小時"]],0,"班次與指定席請先預訂","","12:30"],["抵達仙台，寄放行李、買伴手禮",[],0,"距離班機還有約 4 小時，可在仙台車站周邊慢慢逛","","14:30<br>–16:00"],["仙台車站 → 仙台機場",[["機場線","仙台機場鐵道，約 25 分"]],0,"","","16:00"],["抵達機場，辦理報到",[],0,"","","16:40"],["仙台起飛 IT773",[["飛機","4 小時 10 分"]],0,"台灣虎航・尚未訂票","","19:00"],["抵達高雄小港機場",[],0,"","","22:10"]]}
 ];
 var $=function(i){return document.getElementById(i)};
-var N={7:"7 人"},W={7:"阿公・阿嬤・婆婆・媽媽・老公・Sina・小澈（5 大 2 小）"};
+
 var P={
 "弘前公園":{t:"heart",d:"青森最具代表性的賞櫻名所，天守閣、城門與櫓都是國家文化財。園內有 50 多種、2,600 多株櫻花，櫻花與天守閣同框是必拍美景，夜間還有點燈。護城河兩岸的櫻花垂向水面、枝條在河上交繏，落花鋪滿水面形成「花筏」，是最為人知的景象；從特定角度看枝條會形成愛心，位置可到園內向服務人員確認。",b:"4 月下旬～5 月上旬（4/23 前後請看當年花況預報）",j:"JR 弘前站搭弘南巴士往市役所方向約 15 分，市役所前公園入口站下車；本行為 JR 奧羽本線到弘前站再轉計程車",u:1},
 "盛岡城跡公園":{t:"castle",d:"日本百大名城之一，也是市民日常散步的地方，許多文人在此留下讚詠美景的文句碑。賞櫻祭期間夜晚會點燈。",b:"4 月中旬～5 月上旬",j:"JR 盛岡站步行約 20 分，或搭盛岡都心循環巴士「でんでんむし」約 6 分到站",u:1},
@@ -216,12 +216,12 @@ document.addEventListener("keydown",function(e){if(e.key=="Escape")cl()});
 var tabs=$("tabs"),tl=$("tl");
 tl.onclick=function(e){var li=e.target.closest("li[data-k]");if(li&&e.target.tagName!="A")openCard(li.dataset.k)};
 tl.onkeydown=function(e){var li=e.target.closest("li[data-k]");if(li&&(e.key=="Enter"||e.key==" ")){e.preventDefault();openCard(li.dataset.k)}};
-D.forEach(function(x,n){var b=document.createElement("button");b.setAttribute("role","tab");b.innerHTML=x.d+"<small>"+x.dt+"（"+x.w+"）</small><small>"+N[x.p]+"</small>";b.onclick=function(){show(n)};tabs.appendChild(b)});
+D.forEach(function(x,n){var b=document.createElement("button");b.setAttribute("role","tab");b.innerHTML=x.d+"<small>"+x.dt+"（"+x.w+"）</small>";b.onclick=function(){show(n)};tabs.appendChild(b)});
 function show(n){
 var x=D[n];
 [].forEach.call(tabs.children,function(b,k){b.setAttribute("aria-selected",k==n)});
 tabs.children[n].scrollIntoView({inline:"center",block:"nearest"});
-$("dh").innerHTML=x.d+"　"+x.t+"<small>"+x.dt+"（"+x.w+"）　住宿：<b>"+x.s+"</b></small><small>同行："+W[x.p]+"</small>";
+$("dh").innerHTML=x.d+"　"+x.t+"<small>"+x.dt+"（"+x.w+"）　住宿：<b>"+x.s+"</b></small>";
 tl.className="";
 tl.innerHTML=x.i.map(function(it,k){
 var g=(it[1]||[]).map(function(a){return '<span class="tg c'+(T[a[0]]||0)+'">'+a[0]+"・"+a[1]+"</span>"}).join("");
@@ -274,7 +274,7 @@ function push(){clearTimeout(tm);tm=setTimeout(function(){cdb.doc("cost/data").s
 if(!cdb)return;ro();
 cdb.doc("cost/data").onSnapshot(function(s){if(!s.exists){if(own)push();return}var d=s.data();if(d.ver!==BASEV){if(own)push();return}var r;try{r=JSON.parse(d.v)}catch(e){return}if(JSON.stringify(r)!==JSON.stringify(CS)&&!$("cl").contains(document.activeElement)){CS=r;if(!CS.cars||!CS.cars.length)CS.cars=[{d:"",n:"",a:"",c:"JPY"}];cshow()}},function(){})})();
 /* 住宿 */
-$("hs").innerHTML=[["Daiwa Roynet Hotel 仙台西口 PREMIER","4/19–4/20","1 晚・7 人","c2","抵達仙台當晚。兩筆訂單：中等三人房（禁菸）TFE85808226FD、中等雙床房（禁菸）T1B569FCD1456","","","ダイワロイネットホテル仙台西口PREMIER","仙台車站西口・兩房合計核定 5 人，兩個小孩需確認可否同床（添い寝）"],["Daiwa Roynet Hotel 盛岡站前","4/20–4/22","2 晚・7 人","c0","盛岡・北上、角館與石割櫻的據點。多種房型・訂房編號 T3C9C96F29018","","","","距離盛岡車站 250 公尺，步行約 4 分鐘"],["Daiwa Roynet Hotel 青森","4/22–4/24","2 晚・7 人","c1","青森市・弘前賞櫻與市區觀光。多種房型・訂房編號 T7A521E980E0B","","","","距離青森車站 450 公尺，步行約 6 分鐘"],["奧入瀨溪流飯店","4/24–4/26","2 晚・7 人","c3","溪流與十和田湖。訂房編號與金額待補。4/26 退房後包車到新青森站轉新幹線回仙台搭機。官方接駁巴士（付費）：青森車站西口廣場 15:00 發車、飯店 10:30 發車，約 120 分，休館日停駛","","","奧入瀨溪流飯店 十和田市"]].map(function(h){return '<div class="hc box"><span class="bd '+h[3]+'">'+h[2]+"</span><h3>"+(h[6]?'<a href="'+h[6].replace(/&/g,"&amp;")+'" target="_blank" rel="noopener">'+h[0]+'</a>':h[0])+"</h3><div>"+h[1]+"</div><div class=\"nt\">"+h[4]+(h[8]?'<small>'+h[8]+'</small>':'')+'</div><a class="mp" href="https://www.google.com/maps/search/?api=1&amp;query='+encodeURIComponent(h[7]||h[0])+'" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"/></svg>在地圖開啟</a></div>'}).join("");
+$("hs").innerHTML=[["Daiwa Roynet Hotel 仙台西口 PREMIER","4/19–4/20","1 晚・2 間房","c2","抵達仙台當晚。兩筆訂單：中等三人房（禁菸）TFE85808226FD、中等雙床房（禁菸）T1B569FCD1456","","","ダイワロイネットホテル仙台西口PREMIER","仙台車站西口・兩房合計核定 5 人，兩個小孩需確認可否同床（添い寝）"],["Daiwa Roynet Hotel 盛岡站前","4/20–4/22","2 晚","c0","盛岡・北上、角館與石割櫻的據點。多種房型・訂房編號 T3C9C96F29018","","","","距離盛岡車站 250 公尺，步行約 4 分鐘"],["Daiwa Roynet Hotel 青森","4/22–4/24","2 晚","c1","青森市・弘前賞櫻與市區觀光。多種房型・訂房編號 T7A521E980E0B","","","","距離青森車站 450 公尺，步行約 6 分鐘"],["奧入瀨溪流飯店","4/24–4/26","2 晚","c3","溪流與十和田湖。訂房編號與金額待補。4/26 退房後包車到新青森站轉新幹線回仙台搭機。官方接駁巴士（付費）：青森車站西口廣場 15:00 發車、飯店 10:30 發車，約 120 分，休館日停駛","","","奧入瀨溪流飯店 十和田市"]].map(function(h){return '<div class="hc box"><span class="bd '+h[3]+'">'+h[2]+"</span><h3>"+(h[6]?'<a href="'+h[6].replace(/&/g,"&amp;")+'" target="_blank" rel="noopener">'+h[0]+'</a>':h[0])+"</h3><div>"+h[1]+"</div><div class=\"nt\">"+h[4]+(h[8]?'<small>'+h[8]+'</small>':'')+'</div><a class="mp" href="https://www.google.com/maps/search/?api=1&amp;query='+encodeURIComponent(h[7]||h[0])+'" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"/></svg>在地圖開啟</a></div>'}).join("");
 </script>
 </body>
 </html>
